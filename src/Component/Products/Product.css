@@ -1,0 +1,185 @@
+.product-section{
+    max-width: 1900px;
+    width: 100%;
+    height: 100%;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.product-section h1{
+    font-size: 2rem;
+    font-weight: 700;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: oblique;
+    margin-left: 5rem;
+}
+
+.card{
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1.5rem;
+    border: 4px ridge #e7008a;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.overlay{
+    width: 80%;
+    padding:1.5rem 2rem;
+    box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #76CCBD;
+    color: white;
+    border-radius: 1rem;
+    font-size:1.2rem;
+    position: absolute;
+    bottom: -9rem;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    opacity: 0;
+    transition: opacity 1s 1s;
+    text-align: center;
+}
+
+.overlay span{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    );
+}
+
+.overlay span h1{
+    font-size:1rem;
+    font-weight: bold;
+    color: #e7008a;
+}
+
+.card:hover .overlay{
+    animation: show_data 1s forwards;
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.card:hover{
+    animation: remove-overflow 2s forwards;
+}
+.card:not(:hover){
+    animation: show-overflow 2s forwards;
+}
+
+.card:not(:hover) .overlay{
+    animation: remove_data 1s forwards;
+}
+
+@keyframes show_data {
+    50%{
+        transform: translateY(-10rem);
+    }
+    100%{
+        transform: translateY(-7rem);
+    }
+}
+
+@keyframes remove-overflow{
+    to{
+        overflow: initial;
+    }
+}
+
+@keyframes remove_data{
+    0%{
+        transform: translateY(-7rem);
+    }
+    50%{
+        transform: translateY(-10rem);
+    }
+    100%{
+        transform: translateY(.5rem);
+    }
+}
+@keyframes show_overflow{
+    0%{
+        overflow: initial;
+        pointer-events: none;
+    }
+    50%{
+        overflow: hidden;
+    }
+
+}
+
+.Contact_btn{
+    background-color: #e7008a;
+    padding:10px 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius:50px;
+    margin-top: 10px;
+}
+
+@media screen  and (max-width: 768px) {
+
+    .product-section{
+        height: 100%;
+        padding: 2rem 1rem;
+    }
+    
+    
+    
+    .product-section h1{
+        font-size:1.2rem;
+        font-weight: 600;
+        margin-left:0;
+    }
+    
+    .card{
+        width: 300px;
+        height: 330px;
+    }
+
+    .overlay {
+        width: 90%;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .Contact_btn{
+        padding:5px 20px;
+        font-size: 12px;
+        margin-top: 10px;
+    }
+}
